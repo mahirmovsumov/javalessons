@@ -1,0 +1,1189 @@
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.gitignore	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ .idea/.gitignore	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
++# Editor-based HTTP Client requests
++/httpRequests/
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ .idea/misc.xml	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" default="true" project-jdk-name="12" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ .idea/modules.xml	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/buchalkaCourse.iml" filepath="$PROJECT_DIR$/buchalkaCourse.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ .idea/vcs.xml	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: buchalkaCourse.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- buchalkaCourse.iml	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ buchalkaCourse.iml	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: src/Constructors/Account.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Constructors/Account.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/Constructors/Account.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,94 @@
++package Constructors;
++
++public class Account {
++
++    //State= Fields
++    private String Number;
++    private double balance;
++    private String customerName;
++    private String customerEmailAddress;
++    private String customerPhoneNumber;
++
++    //Constructor
++    public Account(){
++        System.out.println("Emty constructor called");
++    }
++
++    public Account(String Number, double balance, String customerName,
++                   String customerEmailAddress, String customerPhoneNumber) {
++        System.out.println("Account constructor width parameters called");
++        this.Number = Number;
++        this.balance = balance;
++        this.customerName = customerName;
++        this.customerEmailAddress = customerEmailAddress;
++        this.customerPhoneNumber = customerPhoneNumber;
++    }
++
++    public Account(String customerName, String customerEmailAddress, String customerPhoneNumber) {
++        this("7777",100.55,customerName,customerEmailAddress,customerPhoneNumber);
++//        this.customerName = customerName;
++//        this.customerEmailAddress = customerEmailAddress;
++//        this.customerPhoneNumber = customerPhoneNumber;
++    }
++
++    //behavior = methods
++    public void deposit(double depositAmount){
++        this.balance +=depositAmount;
++        System.out.println("Deposit of " + depositAmount +
++                " made. New balance is " + this.balance);
++    }
++
++    //behavior = methods
++    public void withDraw(double withDrawalAmount){
++        if (this.balance - withDrawalAmount<0){
++            System.out.println("Only " + this.balance +
++                    " available. Widthdrawal not processed");
++        }else {
++            this.balance -=withDrawalAmount;
++            System.out.println("Widthdrawal of " + withDrawalAmount +
++                    " proccesed. Remaining balance = " + this.balance);
++        }
++    }
++
++    //getter
++    public String getNumber() {
++        return Number;
++    }
++    //setter
++    public void setNumber(String number) {
++        Number = number;
++    }
++
++    //getter
++    public double getBalance() {
++        return balance;
++    }
++    //setter
++    public void setBalance(double balance) {
++        this.balance = balance;
++    }
++    //getter
++    public String getCustomerName() {
++        return customerName;
++    }
++    //setter
++    public void setCustomerName(String customerName) {
++        this.customerName = customerName;
++    }
++    //getter
++    public String getCustomerEmailAddress() {
++        return customerEmailAddress;
++    }
++    //setter
++    public void setCustomerEmailAddress(String customerEmailAddress) {
++        this.customerEmailAddress = customerEmailAddress;
++    }
++    //getter
++    public String getCustomerPhoneNumber() {
++        return customerPhoneNumber;
++    }
++    //setter
++    public void setCustomerPhoneNumber(String customerPhoneNumber) {
++        this.customerPhoneNumber = customerPhoneNumber;
++    }
++}
+Index: src/Constructors/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Constructors/Main.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/Constructors/Main.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,34 @@
++package Constructors;
++
++public class Main {
++    public static void main(String[] args) {
++        Account bobsAccount = new Account("12345",0.00,
++                "Mahir Movsumov","mahirmovsumov@gmail.com",
++                "7525153");
++
++//        bobsAccount.setNumber("12345");
++//        bobsAccount.setBalance(0.00);
++//        bobsAccount.setCustomerName("Mahir Movsumov");
++//        bobsAccount.setCustomerEmailAddress("mahirmovsumov@gmail.com");
++//        bobsAccount.setCustomerPhoneNumber("7525153");
++
++        bobsAccount.withDraw(100.0);
++        bobsAccount.deposit(50.0);
++        bobsAccount.withDraw(100.0);
++        bobsAccount.deposit(51.0);
++        bobsAccount.withDraw(100.0);
++
++        Account mahirAccount =new Account("Mahir","mahirmovsumov@gmail.com","12345");
++        System.out.println(mahirAccount.getNumber() + " name " + mahirAccount.getCustomerName());
++
++        System.out.println();
++
++        VipPerson person1 = new VipPerson();
++        System.out.println(person1.getName());
++
++        VipPerson person2 = new VipPerson("mahir", 25000.00);
++        System.out.println(person2.getName());
++
++        VipPerson person3 = new VipPerson("maverick",100.00,"maverick@mail.com");
++        System.out.println(person3.getName());
++}}
+Index: src/Constructors/VipPerson.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Constructors/VipPerson.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/Constructors/VipPerson.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,33 @@
++package Constructors;
++
++public class VipPerson {
++    private String name;
++    private double creditLimit;
++    private String emailAdress;
++
++    public VipPerson(){
++        this("Defaul name", 50000.00, "Default@mail.com");
++    }
++
++    public VipPerson(String name, double creditLimit) {
++       this(name, creditLimit,"unknown@mail.com");
++    }
++
++    public VipPerson(String name, double creditLimit, String emailAdress) {
++        this.name = name;
++        this.creditLimit = creditLimit;
++        this.emailAdress = emailAdress;
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public double getCreditLimit() {
++        return creditLimit;
++    }
++
++    public String getEmailAdress() {
++        return emailAdress;
++    }
++}
+Index: src/InheChallan/Car.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/InheChallan/Car.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/InheChallan/Car.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,30 @@
++package InheChallan;
++
++public class Car extends Vehicle {
++    private int wheels;
++    private int doors;
++    private int gears;
++    private boolean isManual;
++
++    private  int currentGear;
++
++    public Car(String name, String size, int wheels, int doors, int gears, boolean isManual ) {
++        super(name, size);
++        this.wheels = wheels;
++        this.doors = doors;
++        this.gears = gears;
++        this.isManual = isManual;
++        this.currentGear = 1;
++    }
++
++    public void changeGear(int currentGear) {
++        this.currentGear = currentGear;
++        System.out.println("Car.SetCurrentGear(): changed to " + this.currentGear + " gear. ");
++    }
++    public void changeVelocity(int speed, int direction){
++        move(speed,direction);
++        System.out.println("Car.changeVelocity(): Velocity " + speed + " direction " + direction);
++    }
++
++
++}
+Index: src/InheChallan/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/InheChallan/Main.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/InheChallan/Main.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,11 @@
++package InheChallan;
++
++public class Main {
++    public static void main(String[] args) {
++        Outlander outlander = new Outlander(36);
++        outlander.steer(45);
++        outlander.accelerate(30);
++        outlander.accelerate(20);
++        outlander.accelerate(-42);
++    }
++}
+Index: src/InheChallan/Outlander.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/InheChallan/Outlander.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/InheChallan/Outlander.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,29 @@
++package InheChallan;
++
++public class Outlander  extends Car {
++    private int roadServiceMonths;
++
++    public Outlander( int roadServiceMonths) {
++        super("Outlander", "4WD", 5, 5, 6, false);
++        this.roadServiceMonths = roadServiceMonths;
++    }
++
++    public void accelerate(int rate){
++        int newVelocity = getCurrentVelocity()+rate;
++        if (newVelocity ==0){
++            stop();
++            changeGear(1);
++        }else if (newVelocity>0&&newVelocity<=10){
++            changeGear(1);
++        }else if (newVelocity>10&&newVelocity<=20){
++            changeGear(2);
++        }else if (newVelocity>20&&newVelocity<=30){
++            changeGear(3);
++        }else {
++            changeGear(4);
++        }
++        if (newVelocity>0){
++            changeVelocity(newVelocity, getCurrentDirection());
++        }
++    }
++}
+Index: src/InheChallan/Vehicle.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/InheChallan/Vehicle.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/InheChallan/Vehicle.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,48 @@
++package InheChallan;
++
++public class Vehicle {
++    private String name;
++    private String size;
++
++    private int currentVelocity;
++    private int currentDirection;
++
++    public Vehicle(String name, String size) {
++        this.name = name;
++        this.size = size;
++        this.currentVelocity =0;
++        this.currentDirection =0;
++      }
++
++      public void steer(int direction){
++        this.currentDirection  +=direction;
++          System.out.println("Vehicle.steer(): Steering at " + currentDirection + " degrees" );
++      }
++      public void move(int velocity, int direction){
++        currentVelocity = velocity;
++        currentDirection = direction;
++          System.out.println("Vehicle.move(): Moving At " + currentVelocity + " in direction " + currentDirection);
++
++      }
++
++    public String getName() {
++        return name;
++    }
++
++    public String getSize() {
++        return size;
++    }
++
++    public int getCurrentVelocity() {
++        return currentVelocity;
++    }
++
++    public int getCurrentDirection() {
++        return currentDirection;
++    }
++
++
++    public void stop(){
++        this.currentVelocity = 0;
++    }
++}
+Index: src/OopPart1/Car.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/OopPart1/Car.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/OopPart1/Car.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,25 @@
++package OopPart1;
++
++public class Car {
++
++    private int doors;
++    private int wheels;
++    private String model;
++    private String engine;
++    private String colour;
++
++    public void setModel(String model){
++        String validModel = model.toLowerCase();
++        if (validModel.equals("porshce") || validModel.equals("commodore")) {
++            this.model = model;
++        }else
++            {
++            this.model = "unknown";
++        }
++
++    }
++    public String getModel(){
++        return this.model;
++    }
++
++}
+Index: src/OopPart1/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/OopPart1/Main.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/OopPart1/Main.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,11 @@
++package OopPart1;
++
++public class Main {
++    public static void main(String[] args) {
++        Car porshce = new Car();
++        Car holden = new Car();
++        porshce.setModel("porshce");
++        System.out.println("Model is " + porshce.getModel());
++
++    }
++}
+Index: src/composition/Car.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/composition/Car.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/composition/Car.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,12 @@
++package composition;
++
++public class Car extends Vehicle{
++    private int doors;
++    private int engineCapacity;
++
++    public Car(String name, int doors, int engineCapacity) {
++        super(name);
++        this.doors = doors;
++        this.engineCapacity = engineCapacity;
++    }
++}
+Index: src/composition/Case.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/composition/Case.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/composition/Case.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,35 @@
++package composition;
++
++public class Case {
++    private String model;
++    private  String manufacturer;
++    private String powerSupply;
++    private Dimensions dimensions;
++
++    public Case(String model, String manufacturer, String powerSupply, Dimensions dimensions) {
++        this.model = model;
++        this.manufacturer = manufacturer;
++        this.powerSupply = powerSupply;
++        this.dimensions = dimensions;
++    }
++
++    public void pressPowerButton(){
++        System.out.println("Power button pressed");
++    }
++
++    public String getModel() {
++        return model;
++    }
++
++    public String getManufacturer() {
++        return manufacturer;
++    }
++
++    public String getPowerSupply() {
++        return powerSupply;
++    }
++
++    public Dimensions getDimensions() {
++        return dimensions;
++    }
++}
+Index: src/composition/Dimensions.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/composition/Dimensions.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/composition/Dimensions.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,25 @@
++package composition;
++
++public class Dimensions {
++    private int width;
++    private int height;
++    private int depth;
++
++    public Dimensions(int width, int height, int depth) {
++        this.width = width;
++        this.height = height;
++        this.depth = depth;
++    }
++
++    public int getWidth() {
++        return width;
++    }
++
++    public int getHeight() {
++        return height;
++    }
++
++    public int getDepth() {
++        return depth;
++    }
++}
+Index: src/composition/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/composition/Main.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/composition/Main.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,16 @@
++package composition;
++
++public class Main {
++    public static void main(String[] args) {
++        Dimensions dimensions = new Dimensions(20,20,5);
++        Case theCase  = new Case("20B","dell","240", dimensions);
++
++        Monitor  theMonitor = new Monitor("27inch Beast","Acer",27,new Resolution(2540,1440));
++        MotherBoard theMotherBoard = new MotherBoard("BJ-200","Asus",4,6,"v2.44");
++        PC thePC = new PC(theCase,theMonitor,theMotherBoard);
++
++        thePC.getMonitor().drawPixelAt(1500,1200,"red");
++        thePC.getMotherBoard().loadProgram("Windows 1.0");
++        thePC.getTheCase().pressPowerButton();
++    }
++}
+Index: src/composition/Monitor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/composition/Monitor.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/composition/Monitor.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,34 @@
++package composition;
++
++public class Monitor {
++    private String model;
++    private String manufacturer;
++    private int size;
++    private Resolution nativeResolution;
++
++    public Monitor(String model, String manufacturer, int size, Resolution nativeResolution) {
++        this.model = model;
++        this.manufacturer = manufacturer;
++        this.size = size;
++        this.nativeResolution = nativeResolution;
++    }
++    public void drawPixelAt(int x, int y, String color){
++        System.out.println("Drawing pixel at " + x+ "," +y+ "in colour " + color);
++    }
++
++    public String getModel() {
++        return model;
++    }
++
++    public String getManufacturer() {
++        return manufacturer;
++    }
++
++    public int getSize() {
++        return size;
++    }
++
++    public Resolution getNativeResolution() {
++        return nativeResolution;
++    }
++}
+Index: src/composition/MotherBoard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/composition/MotherBoard.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/composition/MotherBoard.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,41 @@
++package composition;
++
++public class MotherBoard {
++    private String model;
++    private String manufaturer;
++    private int ramSlots;
++    private int cardSlots;
++    private String bios;
++
++    public MotherBoard(String model, String manufaturer, int ramSlots, int cardSlots, String bios) {
++        this.model = model;
++        this.manufaturer = manufaturer;
++        this.ramSlots = ramSlots;
++        this.cardSlots = cardSlots;
++        this.bios = bios;
++    }
++
++    public void loadProgram(String programName){
++        System.out.println("Program " + programName + " is now loading...");
++    }
++
++    public String getModel() {
++        return model;
++    }
++
++    public String getManufaturer() {
++        return manufaturer;
++    }
++
++    public int getRamSlots() {
++        return ramSlots;
++    }
++
++    public int getCardSlots() {
++        return cardSlots;
++    }
++
++    public String getBios() {
++        return bios;
++    }
++}
+Index: src/composition/PC.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/composition/PC.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/composition/PC.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,25 @@
++package composition;
++
++public class PC {
++    private Case theCase;
++    private Monitor monitor;
++    private MotherBoard motherBoard;
++
++    public PC(Case theCase, Monitor monitor, MotherBoard motherBoard) {
++        this.theCase = theCase;
++        this.monitor = monitor;
++        this.motherBoard = motherBoard;
++    }
++
++    public Case getTheCase() {
++        return theCase;
++    }
++
++    public Monitor getMonitor() {
++        return monitor;
++    }
++
++    public MotherBoard getMotherBoard() {
++        return motherBoard;
++    }
++}
+Index: src/composition/Resolution.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/composition/Resolution.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/composition/Resolution.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,19 @@
++package composition;
++
++public class Resolution {
++    private int width;
++    private int height;
++
++    public Resolution(int width, int height) {
++        this.width = width;
++        this.height = height;
++    }
++
++    public int getWidth() {
++        return width;
++    }
++
++    public int getHeight() {
++        return height;
++    }
++}
+Index: src/composition/Vehicle.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/composition/Vehicle.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/composition/Vehicle.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,9 @@
++package composition;
++
++public class Vehicle {
++    private String name;
++
++    public Vehicle(String name) {
++        this.name = name;
++    }
++}
+Index: src/inheritence/Animal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/inheritence/Animal.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/inheritence/Animal.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,45 @@
++package inheritence;
++
++public class Animal {
++
++    private String name;
++    private int brain;
++    private int body;
++    private int size;
++    private  int weight;
++
++    public Animal(String name, int brain, int body, int size, int weight) {
++        this.name = name;
++        this.brain = brain;
++        this.body = body;
++        this.size = size;
++        this.weight = weight;
++    }
++
++    public void eat(){
++        System.out.println("animal.eat() called");
++    }
++    public void move(int speed){
++        System.out.println("Animal.move() called. Animal is moving at " + speed);
++    }
++
++    public String getName() {
++        return name;
++    }
++
++    public int getBrain() {
++        return brain;
++    }
++
++    public int getBody() {
++        return body;
++    }
++
++    public int getSize() {
++        return size;
++    }
++
++    public int getWeight() {
++        return weight;
++    }
++}
+Index: src/inheritence/Dog.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/inheritence/Dog.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/inheritence/Dog.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,46 @@
++package inheritence;
++
++public class Dog extends Animal{
++    private int eyes;
++    private int legs;
++    private int tail;
++    private int teeth;
++    private String coat;
++
++    public Dog(String name,  int size, int weight, int eyes, int legs,int tail, int teeth,String coat) {
++        super(name, 1, 1, size, weight);
++        this.eyes =eyes;
++        this.legs=legs;
++        this.tail = tail;
++        this.teeth = teeth;
++        this.coat = coat;
++    }
++
++    private void chew(){
++        System.out.println("Dog.chew() called");
++    }
++
++    @Override
++    public void eat() {
++        System.out.println("Dog.eat() called");
++        chew();
++        super.eat();
++    }
++    public void walk(){
++        System.out.println("Dog.walk() called");
++        super.move(5);
++    }
++    public void run(){
++        System.out.println("Dog.run() called");
++        move(10);
++    }
++    private void moveLegs(int speed){
++        System.out.println("Dog.moveLegs() called");
++    }
++    @Override
++    public void move(int speed) {
++        System.out.println("Dog.move() called");
++        moveLegs(speed);
++        super.move(speed);
++    }
++}
+Index: src/inheritence/Fish.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/inheritence/Fish.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/inheritence/Fish.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,27 @@
++package inheritence;
++
++public class Fish extends Animal{
++    private int gills;
++    private int eyes;
++    private int fins;
++
++    public Fish(String name, int size, int weight, int gills, int eyes, int fins) {
++
++        super(name, 1, 1, size, weight);
++        this.gills = gills;
++        this.eyes = eyes;
++        this.fins = fins;
++    }
++
++    private void rest(){
++
++    }
++    private void moveMuscles(){}
++    private void moveBackFin(){}
++    private void swim(int speed){
++        moveMuscles();
++        moveBackFin();
++        super.move(speed);
++        
++    }
++}
+Index: src/inheritence/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/inheritence/Main.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
++++ src/inheritence/Main.java	(revision eb6cabbbdf5c73ea09c6e6b3de9ee9340256e0c8)
+@@ -0,0 +1,13 @@
++package inheritence;
++
++public class Main {
++    public static void main(String[] args) {
++        Animal animal = new Animal("animal", 1,1,5,5);
++
++        Dog dog = new Dog("Yorkie",8,20,2,4,1,20,"long silky");
++
++      //  dog.eat();
++        //dog.walk();
++        dog.run();
++    }
++}
+diff --git out/production/buchalkaCourse/Constructors/Account.class out/production/buchalkaCourse/Constructors/Account.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..e03d9fb820e952653c648bcf2b8ada1ed43f521b
+GIT binary patch
+literal 2996
+zc$|%uT~iZR7{{NJgxw?t(Ex#n*ezlS;Y~|hupsghEY^TjP^4<xW%mdx$!=zMBf}Ty
+zXYisoz3OFar_>oQ`T_c(I{lxMO-RDxn9Q6#=Q+>I?|Iqe-~ZnKLqxN*pQLX3Ize+Z
+zAE!G>TA;geT1-%ymc+6wmKCuS#IhQvd&=VO^=a`*Lhwx*ULK^0(R!L9^gyMDDs3`S
+zHmc=4?lMXjU+J&)sgiE*Pi^_GW$({1QulNS49<uZ7^RG==R0NYZs=u*dg{m3vTl`@
+zOw;9_$Edq5-aK$@UU#p|TejsdFpB0zpD>E8I3`?l6|K6;w!T;50>d%%(i7da#5oYg
+z`~wS~GsP9h_I$T$_>SvMEg6PWwS8a~b7$cTXGI?)5pcId+<mOAYVwNXSw5h11tI7R
+z1WRQB%P4+i`3D78KVo#LzST?h+s-XtHxAeJN|1SCpZoO^_T)yxdX(@^ReD3n1%zS;
+z3Q71|uJ;tJKv$Dqlc)>#D=l5_^4cYRO**Zu@AJ;P$u!xt%tgjK=OVe~R9%DLvqTwE
+zL9Zu8b}1U5t15k$qDQoapsQv7STjy1L&E@-xT(^1iXPJhqp`rcMd`>g{R6F{yU5As
+zt`}IPsE2w}l%c*9^^09rELW%(4V}S91Rp}{mL123FTJwP{R7AJx)gd6r=1i%rQJAv
+zFP_ih^c-Can^`zG?bE}(SKMe7Z5?|)FQY?F6&Jm=rdrO_COYb)uUs#q^W7n0OkhQv
+zN_LW7&<~8R7i#mTIWIM)m35O(Y8(7W3*Kza@-&7bmi0ppQbYH5FqD#6w|&vMT%iy;
+zcViFj(lK1(#wv+voz!+jO-(t_n(g>n#dQp{pPOPb!@b;UwvmX!2v*#j)E;pRkqyNL
+z?H!G&^rNV*!D#r@pJl&x4te0Vmd8C^l>AsF%#TuZoWp7bgLL1vxw}%*L51YrG`}x_
+zk6J_5blWU(Z@6ao;n%;#aQnEzL)4!Y+Z#SNde+4XW^l{$`J75G8Qu6OHb&PztVf^X
+z_rDuI{~h?@$8=*C5d$ut{lPgKJg>-S7yc*kl3^Xh=`Q39&(8ciVt-O39sQePZ>9P*
+ztQRRNE-8jx3Z|dnl&Tq!hTtTf4F%4Ag|>?4Xx&){oaM((NXh3;NX=(sClt?TJ5DH(
+z&nhRBJPkBNaja<s>L&4?UIuFh->b-F2$|%Ng$TYtiU<${7dw$PlRJ@jMD9f9F}V}D
+zcgUT{UXi%h1KeG}#$@j43q6z?8=rVb7f+Fr(%DtuXfkxZrrZeKDZ|uiA;LuDPK1d<
+zI!rf$FgpMcRUF9g{zdADfl8n@BY7O&qofp4@L>eM0aqh3a7MZwXapXh&yXqpw{c$&
+z@^cVmR=6G6zxd`C>P3`VkV`ViZ!}mV*l!`Y+#rZbf{d)!7+s)oc%DLxn>0hyO(e4o
+zl3Dackc?s<qsU+u`#fxGOjD8(vxz{;AB_|hDV%AVrH;ldjnhP6yZ~(xOp)``-jzAn
+z%r_w^4J3soWmg!&-)w+H8X)TLZ6J%GAh#NoT|ix;5@ZB*YX>R7X7wD9OwgszLn{(*
+zugF>`$aHu`;_V<s*sPxe(jQdhi%^h6JIH1z$d}<DiFS}}*gQT5BpZNy6$+AU2YDI_
+vG7}DxYzKJ`n-}MRT#+DA46v}dO?%Rc(NAQO4$L*2dvJdrvTx;Dl<UU-4?9Ot
+
+diff --git out/production/buchalkaCourse/Constructors/Main.class out/production/buchalkaCourse/Constructors/Main.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..4b79d0b8851f51c06dc4edc76a6b17cebf77f889
+GIT binary patch
+literal 1991
+zc$|$@TT>fV9RD3ivP-&h370~vlq#*E7m!OVC6%TLV$p=6q11>MPL^Y`klhn^H|a2a
+z@yT~z9AE1<(1&EEo$&+o6ZF$K{?8^57&0ApX8-4Zzwe$m|GoMbz%uGle1v5U_jRo3
+zNa}c?<FhDwuo_7f5Il-{7)fn(s1#AZ29%CRijnR^25SoYT!Hl%iN1{DD`XYOY1oWn
+z9Lowk(Xkaty*+3<8^_l=zR{6a=(dKZ8g>{W4=l&>R~dTaGem|ma$hhEWGzQ**6gBi
+zw|TKboLE+xyt2bxOVMp+$S+$S!*Dhu9nW`brY~J@F2^k=NkW@WhOzi=_JG&<T!lNO
+zxxDXMPAM6L;%-S9cM&sOD$1hw$TVfm@yW;80Bt_088$Cl?unjO6|N_pd4}<`7CTmT
+zD-b15lon2~MTTfz)?8DpTdJx)RluxD%D^;kFpPAI&JdnoSX@dl^ygF(Q#o1pYPPI1
+zTn@6b+jOc#ji}6;(x!;_5(|m>#G-Qi%)qxO82Ana@)h_{>|G7t8~6b~8u$r&1~~Q@
+z2Gdgdlmf5jgkP5X-arIJ9j1YO2n|0QD50zXWjofras!s~6t<589WdxNuM5{Q4;hAz
+z(bRFaN=FIK&6d*XOzcVVK$z5wZ2bHf*Uqyp!cohiKeznyn#-Tlp2XJ_N81-w=~)!&
+zewR=e^?NGw{E_Dinn|y$k<-zZz9r|jNZBV7!EM@>zLM};9|G+`e5Tv34v<Qw=K0bV
+z?k2ZI6cvzPolQAJO|f7h4h8km<o+|NE9fY9eA@oy3)Rv!>~NQa)lMs_LPHwu;yP%g
+zs)!O(pJtbtDV6xehB>pN!BHzny_xPvEvGIIMO&#=^*UGUbEJVf9mz_0SgX><yWu#(
+z%~ZJO32Mckr-QbAw6^^*clIm7n{FAtd)8+Rw~wl#i~8w5PHTV9bhzyz!z-1%<%^_-
+z8pDkX<;F1iZarMbhjb07rw2^^UI^YKYK~4uXZThV?C(JQF~LZ{>_wcQ(Ne$+ZqeC?
+z+qly*W-D|%M2Pp-YxERiz5TIJEF6n8p=EE6KyM&Q$E60|>rnk2DzF(OgWe{Fa{nN9
+zr-5O5M_yqRXkd(34P1VW@j??5n?&7h;0o~-Cw6rN?>8~I5+eRY=#=0Zd5=vsaeXDM
+zMB$dGQ&}2=K{Z1dp!;YL*9g0b817;iOB6YcF+3&7F0R1DRoM6dFEEMUFoi#;jW4N@
+zsw=Cl%E@k)&LR9xt^9=glExn93F{&2hgiTOb@2s7ULq_+9t<Q13lsO#Ag6oyCAcOT
+SBs^3xfiHqvm*FwJ8~+24F#GlZ
+
+diff --git out/production/buchalkaCourse/Constructors/VipPerson.class out/production/buchalkaCourse/Constructors/VipPerson.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..155e5a6095cdd2660e65efd9b9c412f1603f9d49
+GIT binary patch
+literal 1019
+zc${rg+iuf95Is(vOI<fj+$6mLO(_@0LCq@ygo+Y)Au33%^6ofGx*@ia?Z9UN5>X`{
+z_yE3yuRzRfA~&@5!_LKL&Y79r-+zDp0`L@1O1NJ*{WAf7B^(>rz=IMV8Zhx_or1@F
+z*nG5#aEfSa&;!>O8m#`r{p@z8ZZPhgCy@-s&oyj#kr>IOFMXM4(0Y^+zALA%Mv;hP
+z4TTpnkjYC8Yj$fuRNZhyR9k%+h_jhL6w!q{oGS9rbEgA0k{mCSdU7d=W4GT8gE)z1
+zUJ^!eXCObl7f~DrB;T-aH`QYyJL|{o6hn(+k({XsYj!JZ#xeoAt7FnEy+!)<>a50j
+zIEy^-Msn}vw9ONyq`maS2X{7YE|ytYM9C==oOq#c!ooh~XTirH{1W_^-!`#{vWYEJ
+zOjJ>(xwAJy_1FEs8%~6m;E1l$q|07Ij#<ddF_E%W6&Ikf2%R;Go*_>jU^<poL(bB#
+zkpHgGbvg~Q06z}{4Mr`n*ugGY=Gj~Fyd@r;u}<5z3K=Au^#00<q)E*&>4JnkZd6kq
+zx0+ML`%7Y<(0Q_T=L$uqJx9s0=OnYI&tY7PG!&>pJyeOtBEoGduPH%CbyiOW>#1OU
+zDaamgN2lxo?kuG{WEqurexUR%l`5#@&dNga=|b+}URs<>i`T#2C_cz6KFm}$ZYm#U
+J7B>~@=pS-hqD%k)
+
+diff --git out/production/buchalkaCourse/InheChallan/Car.class out/production/buchalkaCourse/InheChallan/Car.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..80503c8494777c50a3bd7009bf01a07bf605b7fa
+GIT binary patch
+literal 1613
+zc$|$?+j1L45IrMHT3OjxzG!U{IYu!~BCU<Zoe+ftB5*8_b92h6a-PPkDQn`@j%s&g
+z%6tj0d;$~>Res<D_$Z2=Sz#M2QhDj=>7H}?^z`ih`Pa!G0B+-15tngm5-w`S)Q$0t
+zSv6*D67OSumQH?D#K-ugNU=|6!SK0*+YY{9$p6q2B1{-qn<3X#DkeX-FSuC?GTGwM
+zkcX7sWw;a!<5)!cA!P}9S4L9bV_2<qUhzZT2zj*M*w(R(_L~<Y?RI;&zQd4hsjgrs
+zbz~$S4f}f{e$Mwoip+LYz{4FLOS2yZv$`iq$V{gl^+c=3L!xZ7c-*8^#QPR@p%mp3
+z`6K0uL65>B)tjxgP5r4fwj)9nNPR@j*4j3aO9n!8878|j7J-&3B7$u-j03SDjg|t{
+zT{p#Cc(~(Y3MCiQ#>^Nqi#Zo%lpHi&+{Kp+(+`x=iH`YTOX!~JCZ#;?6>#6hSNPh&
+z0~alP<KkN^7qDT159wb1(<sB-`N)pw$-s!Y^;VZ|`kFo$Jxa9bGfb$VX7JMUQZ=5?
+zVNDRh`^_RYK~JG>n%x$<bvE)^{Z2K#ylz#iDyy1TvR-9a=<@^7Qc=M53#ohLC7MT?
+z=H}6zkDJfjn92;!!0f`v;Kuio?W;p-e$9yc_Z*G5e|(a5I>Rbsm^Tx?Na)}@bLo#5
+zR?c!VI#dT@bR_L*g9lp0M-HCQqwgqnFdQ(r?I;p)E96NcsL`L!3m$Q#L*L|4Hx$WA
+z3LG<|{{uch8i+B+U!Ds+-g`w|HtQEDTJ&7Dr54oWQ-&LFrHx_f&F65Pejk_VXOct4
+zyngaB<^!<n%xI<0z^-MxpP+w@hk3FKwELO%4z2I`t82f5`PYt-@xAOZCVVe<jI8hF
+zkCF2!kpIP!yhC=$LR{pj^d%~53N29CYve6cxhs_2Olffy6~KCnlxNmkA}?b-BYDDl
+zMs(JChAn43BRo%-cTpY5eM&fk^!y4b`W24<8}cV80IxB5CUDA<dPFl%T`yQc^C|FD
+zkZ13Mexr1U%Om<-!Wm@QuPnYsk@zc%C)DCN_A4aqDhaGu_G*edWiONbl5Mw)74kBa
+dzhN0}VvE)y<-W&bbO_zBoEdyTu@9~N>~BY3XGZ`4
+
+diff --git out/production/buchalkaCourse/InheChallan/Main.class out/production/buchalkaCourse/InheChallan/Main.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..44a3da7c68fbc83a74aaf451c076dba083d25ddf
+GIT binary patch
+literal 566
+zc${re%TB^j6r5WgwH2lED1wNhE>NP~nqb_Jn2?|>FeJv+rQATVv`H!cmm5el@dNw-
+zKgW1(!4QpI%;e6TGiTC|uh(|~m#FGcQBbj~LqSnONy46rvWk6%<dx$&;Wb07cG_cz
+zH~oQNNVgqN+|4F^5!~~>OG>8g+uZH(z>)8j7!OCzRC+CMB$^}cy4<sFx#Km+n-DXY
+zwa50DKXZ$$q16oo#~U`HOFS6TZuTFWLGx!JDFYEO6n>?5ehiw@yZ$V&#f>AoX!7ob
+z%t~Pc8bkiyHEC8-IFN9N3WM>tJ4x$Co&H$ZA+@cwWa-2-6ta`fZCkh^;GsYjN&3a|
+zQ^4eDLY-a~F(Xc#Ex=wPdy_C3i7})IQ_BHtVVhV(8pdk*i6#`{<2NV|#>oP)cHKCi
+zBVIQub0q3UF2Ya3b##fsWt>iIP$!exlqvRz6nV~EMq&pUVjV?fk&9a9qYU#Kzwm8i
+
+diff --git out/production/buchalkaCourse/InheChallan/Outlander.class out/production/buchalkaCourse/InheChallan/Outlander.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..5648bf4c2e884159c85cd7629b6a397296b9e4fc
+GIT binary patch
+literal 865
+zc${rg%Wl&^6g?9svEw-Jme9tu4bQ}dh6PB7QWm5FSxTu;P>?DiF?B|X!Pu2MDdJaH
+zumOoR3xdRg58y}m352-gL<the@|k<j+<Se_jDP(8_8q_-bPO~M*e3G0kb{X0lVDT9
+zmV%~&iwZ93xUAy}LnV&*urJ~>-xCK>D95J^%w@>l^Fv?WXGpi)_JEddG!zV_o*#<G
+zlh?;0e#(ynVyeB!<H3N(zRKrhT8@1hRPVXrSaioc2zb~zoJd-RBHm>%x#x*M#9XTC
+z*^&>%n}G--&zEl*3Vq4FR|ouLKGN(*lh_jveU%g!vvywcGtQ7(5DeO_XZse4xN5;d
+z!NN7PEVSWR*hb01b(P-04#Vny)se}+`7S4ByVX<Q=@2pM^kwXaquqZQ*L9E7Sye|u
+zb|-NxLb>##wc2#7=~Ee<Bnj1--k7?@BcVP~TQ=?cvGAlHg=BPAvK*6XxpW_BLftXI
+zkWwZoN>N-yiLgxBA#`GZnp0)flwp*!+E-{!;|tQCli~_t5gMUR?FOpI(F>fLwb8Qz
+zB#|0V{{&VS!+%nr>Kr;#WEwB_>~|<pn03-q=%4VwevgV>Ha{RgXKqsVQE@AZ%Ospl
+zS;B27E}L+Mqti<5mSfXEV~U(ot0ijhl3tJ+r8l2gEul_&nzY*{?YBwm9;tRo=@Z%+
+uU=2rDhX*@xwl&kda5f~b%9)PmR9zt7=ZVcD`wMkesnyaJZLTGUwf+at-K6XQ
+
+diff --git out/production/buchalkaCourse/InheChallan/Vehicle.class out/production/buchalkaCourse/InheChallan/Vehicle.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..bf2b9805e2a53c6d4f518f11606c23effab08c16
+GIT binary patch
+literal 1887
+zc$|$??QRoC6g}f_n{5)D5DFo#X_H_tG;RwNN+>NDQrtQL$;egJKb_d4c*uGu+8tX8
+zPr^g=2dx^A_|XUGLsh*qyV$9-t&pYJ*_nIJx%b@b{p;_ye*(CTrzM<0y@(QAvs^XH
+zHM4wL#3mYL3c6mx4csh);Z`2E^Z1G(<MW|lD7T;UF>iR>-*0quApQL<x(nqCx|{Ef
+zf<XAXD?HVc`iOzG7#8BwhcXa7EtSuZyDNRE?=f7dou)f|Qty&PQ}vBRTl!*mG~5%x
+zGrs59gjA1vT^>mD9v^1(K!yzG+AV(|ngi|;U85@ovgZlPHydgp0t&0O40o|VO)WE2
+zV<O1bTK1|ip45`x7kbxvuvDujxnKf1)`&9gnzLS{YjtvCae8&akW8r6p$#F;Qb&z~
+zp4gVA5+}}j(+D~!W5a=i4;;*yWgZI-&SD{tI}WyRm)w4!ln!;k4|jwfsD3z~!`B7e
+zbMOtm&Evj<2WS@X(7ZpQbP^0Al4*5M_MTIc|2pa%k$pqTR*kgr*xpFhcuGEKazpUp
+zRtekqj$z|n_SW!P{Z6%GHsn{8>nf}E#eN_Jb?W?(ABd*%dtCo0^?-Jv=Ds#Pq#h-?
+zy_g_NJvcOPo^No;gXF$T$u!zzw4=r*pZg{s=~pMSP-P6uW(-dA<nh?}*JfCo-bsI~
+z4n!Ohm9ouyS_MaW?9$A)l{y$vlbx3Di=gT8Ff^6FJeg<A5w-3y_xqj**CJrT|Kh)Z
+z&yEg7Lio?^*|u)gPg68$7CKT3D)I@#`g`TZQ2GBjT!#7R02!pr_|h(ACfGh{i0$*N
+zeHQ4WQ^q2#OZ0X?=V^LgaNmHrSC5f$uN@=prjL;^OZGPlJxA+B<Y+CC#2FM}{~$y&
+zhYv|$nQp2P5zf;I?9L>@?9RldXn%oNBH=DYrwpt6(;vvL{6bQ{Bj?ioE%Lx?6sF2^
+zmbpyYi^Q;G)s`dlMC~G0s66^2;u2P4jRD~dvf{3oaxP6YGLcSkMyE`*8RjgpmWX$i
+zSf`a$CR!ExE!fH`R@GGY5k*C+4Vwj!C6Uyt33<*Qu3ADT3Wy0AbuS5=o&{e{1b>WA
+z62O^XXTa-;;I%|>b{1Su1g~Qw2H&tAP_!MKsiP&^rA@*#PB7$RhBU6&$QpjIu?#Kj
+U;Ct%vXSVApd`@Ry*!9bQ09mGe&;S4c
+
+diff --git out/production/buchalkaCourse/META-INF/buchalkaCourse.kotlin_module out/production/buchalkaCourse/META-INF/buchalkaCourse.kotlin_module
+new file mode 100644
+index 0000000000000000000000000000000000000000..a49347afef10a9b5f95305e1058ba36adec7d6dd
+GIT binary patch
+literal 16
+Rc${NkU|?ooU|@t|0RRA102TlM
+
+diff --git out/production/buchalkaCourse/OopPart1/Car.class out/production/buchalkaCourse/OopPart1/Car.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..4d54408405395360cdc040c0db2414e9b8f2bd51
+GIT binary patch
+literal 805
+zc${rg%Wl&^6g?Bi@gwd7(<VGhA3#f9G-8KT#3m9FQbLh}y6A4=j1sqwCrq5?2lxs2
+z0k%|vBC+5D_$Gw7V_QIJH*@aXIrrRqX6DDQZ{Gnt#l8y%J1#bG-^K%t4{hu^u(4<3
+zk%gLtI)gcsQq36HONP>7EJQ>bb0UW#V(_~s{EW9F9*^4nM1}F_fLJ0Pg|VO@kdd4#
+z3Z8{=m^^1NYV{+AVuz|3R=UJ`HJ=QGdcy~i&~h^1(Ggdn-sj0;G7hQba`#Y9Uvrf_
+zX?M7yHug*;y=;v2+SNI9BlnC);V>sH^%EYP_V_f_wa_4m(I1JmTKzgNZl4SU;zg(@
+zv8nOCCV994-$N6d4AzvcXB-F*Ej(s$0y&|}k%|&aSf=xNd>YF|%;5cNfMNA-yTieW
+z2$D;wYyyUIBD-=SREN*>jf%H(t{>o%<E;FkevBP@Jcl0FL;)_!6cym*NYkXalH+QM
+z2ADQO>rL9V37M{Md<8pCX=}8W(xicPTD^>b3aW$*w{SZzen)JBaIblRLa*f;7bt#!
+z*YZsY-lN=TenIIYoQ7{vaGok^^$MwJU6V$v(okD8&@P?mZrhn+-c3i^27N%XdWWI{
+i?o!r;@e@@G8<t6D_po`z&S#W9{b#3gt(~ouwf!3n#F2Uc
+
+diff --git out/production/buchalkaCourse/OopPart1/Main.class out/production/buchalkaCourse/OopPart1/Main.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..03164ee55fb8b04372adfd1716c19611cd93b945
+GIT binary patch
+literal 1160
+zc$|$>>rN9v6#j-ncUu=)TP|J@i$X0_sdz<;pf(|zv_evXG5#9bNjtFJX?CY1yos-&
+zKT3j$58y)?&vYAGLN#u(bLL#W@0>Yj=I5{T9{@J+CXOqZw{R<tG0fYTGjbt@+sK&R
+zVv3@c<H+Kkg`9;IhUljBq~2nP<W>$C#!IR$7!qaai4UFDq44+lp-YxjS=G3Ez<p`-
+zzHwYPWniLrReO*7dc9EL(kqgqMUr7Q_qlw;Pk6!QUZYUezVsT!UK;K<2$&w>X0Y1I
+z51KXNpBfOCxKFNVQ@M3P%<-z~_%*R3O&Kwhb<Hq2a4^Z>48t6(B5&cog9li1P{2cm
+z<Xfe5pncx12;EfmAQ8p7jYke1<B5f*4xS;;FnQrz1RGSldw3*jn!yf)u29chhMC;x
+z!w#XUr-2qNYPRYSb|#FMs<21FnjnI==#+Nj59f4l<uYj;&#^&0=*47YkYNmSEq*LY
+z%BykxQR*h`0?j>5P0o%gYgFIUBdRgeFq-RGcwxHpieYJhmEMUu7JZ5^`wp*Z<)2#E
+zrg4>(I_|V-An!d-_$8MIfuNGU442gB2nX?wdv#X?OChj$xy-)-_fOkmMELLp3rBY0
+z?0t$7cipPgqG;hY!}5RC#<1}3I4r`vM)Qq<nTtv56ln#LjO4`X8Q9mJJ3(u-XN(|8
+zs}ly`D$I+GA&u!iSW|R_WcEA8KAj;_?#oI(HQvR<H$?MYSm&^TE@A`rSz<GcHswje
+zBHhL^6=<?$LPpGx6=Yw)9IjEmB<a^_XENUCG2O%_$vF95Vhcs`-svG2?$W>X8~@E6
+Ao&W#<
+
+diff --git out/production/buchalkaCourse/inheritence/Animal.class out/production/buchalkaCourse/inheritence/Animal.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..5d5c6b45470f9947e2a9916723767e543685ad95
+GIT binary patch
+literal 1744
+zc$|$>+foxj5IvLICSkc42p2&Jikbu^-fti(Q8XISs#y5o(<GT93(0P3cfi8$@WGGp
+zK`o<IKKKEClx5HC7HC*4Q<a{co<65f_sstI`RzM^8`wz0L?ML%6qQ+2=A1I;m03!m
+zgbPVrOyd$RX9#iKzzqX88Dci?2!>2`oA2>bo7-EZnshCDYndTlce!OVunOhXo#s9*
+zp7n;(6R(A})sp0_Shgis8K&|_87lNEY!ayKGzm0ZwQRAm+o=op1+TYtRj0w*o7}b3
+zJ_yES%kmh;D7z(GOA5OoO80E5!`q}ODmaym<~47}*;9bLt`hgULNpnSEg?5_Q)Br;
+zSX)U-So1q0o{EoH)9op*raMfL_cCZQU2}HbhFG_hya8Xzk|H)Sh8Yus7&0-85fjIh
+z$tW|55d*hOEMtXXl=~Rco-gF6<+f-VxNTw;cNj+297lT6<=v-3ww$InoWR{A?wMFa
+znTB+94um=E>sftUG~^$l+P)`6huU*?=^*P5!E#E^X#$ewAb5x7Fd7o35p>nAO~c8C
+zTxnr5jr(}Ouo#R%UBN+5OF2K9v%DM~5Fp28jxkJh_>L$$c7w~8mTZydNp4F|6{&<=
+zl7V&A{bPoO!!yg?b9O|K;*+iOhIHJ0166v8Rma)c?J}4Z+ZJxQ%{@<0g?GQV5pei}
+ze#Gr&TX+jTaQUc=zX4zDcST70t7`wPEEkSalxb8ox=w2HDZ}ai(#A0R?>x-YXKvDm
+z9Y;jHNAe=-N$T}jux5gFRIf?U7lJI=aoWA5c!Jhk@hezyv4==;riW<pL=UlIHr7MD
+zn2q<4_^25s$j-tbJAfF~P3f9L#5{~CVxOa$lXSZ3b5iU$pgonxw5QZXw5Rk%wWk!u
+zw5K%2DRUY#fx_#Qt&pitFfz$6NF7Q^Yoak~DXYtxeqvCT;RK2GNghz9${i$<>2Cx?
+z2+;%)OlqQWKlwoaAayoERE!kP2b3kfr^y#TBl6*ZDxrhZzv+n|=sAf~A>ioyKJZ*9
+zcp(%V>j$3-1)mND$NRx&L&0Z4!HItGVhA`&lqxHaiXJn=Lp;GFI=vD+#jEtc_6xf)
+BO<4c{
+
+diff --git out/production/buchalkaCourse/inheritence/Dog.class out/production/buchalkaCourse/inheritence/Dog.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..9141bd268818ede3c22f08f3b2ddf9c5765e1869
+GIT binary patch
+literal 1511
+zc${^V+foxj5QhH=o9remIS>{NX8|Eu4)Kf%DhPtnh*n{7<;@bN$Z8H$SfKE&v?@@=
+zg%99ES$0pBWd+Q|Oi$1B*MIlS=J%iTUjUxsV*(Z)#L<U`JUrszF%M68Scub+X9k`p
+zu!toCFB0T@$sw-{Ec3i#;59pGUNx}B<{KUBIyM9}c_I%4M2XCr+#^%-9JeMA^`!Kw
+zw5&88PoTH_)j4vCHK(yx-11s(V{cI)w&XTk@1?+8{`z)F{jU29+XP*0?n;4F*=@+p
+z!}^YFeRg(glG8LRPHo$1xxDtBnpbs6ScXnlWy|$sqaurIO;(^aoI0O4aKF<OJC^QV
+z)nn0Bc`VSC=VV=y3($_8+BaIX4jTeSy?G?dopSRfJ`_FJmvWbuyd#j<Y96*Ka^2<p
+z2IZRPI!p}Xt%-izGI5)S91jCL3}Q$}$;3OnC#4*~67q#HDyJrQb(Bqfz@|W&_efE&
+zWnvn669we`Ko%O>En?1(BI$u&z+%@$9U*__!XIMHG9z`Rebnu+XQkoR9lH43f9{gI
+zln(8j9C)%$4Q(D$cdbs0+bn*f0FT0?Q>XjM-ryF{_jy&Li?D7;R@lZJdZHG+{U{>b
+zZL%WVa5d-rdBC5k^EB%abU7n5j?(HJF~n)k+cTOrG<*hOTUr|t+lsc)Wm~Z}G~3eK
+zh}t=$jo1%G8l!Q9NI*A5n@FLDR3s@wiWH^ko-#B8Upj1zV**gtBxw-Jx=X4e%9<jp
+zOIcijrYx=@sw}P|rYx>QR~A=dP&B;<zm5f3F*p7bdarSc_@&T<O4COHmJ(%l4*H@5
+zzb7BE;X^VENf5+7MYnwh^Agsp^yLUP0DjA9QgR8+1W-GGF8k0VLwgu%oFREhOsd*P
+zh&W1J91GEs0c|Frt@yMQ(^5=JlhE{4+&JMT$es-0Qa&!ik358nT(m87L))eZG_4^0
+zorA$$#xYO#L4Sz+-TAmJAD3lZFRL3oMb;ktr{GQtZ353w!LziU3nj<~39><gdn)$+
+EUoDaDPyhe`
+
+diff --git out/production/buchalkaCourse/inheritence/Fish.class out/production/buchalkaCourse/inheritence/Fish.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..07a7e4d95a13c9b261fde91dedfca6365a4ef529
+GIT binary patch
+literal 900
+zc$|e(+iuf95IyVI4oTd!q;=XRX-m1L4v<%*A|ybHs1*8A)c38sBn$Qi*-k6?4E}_N
+zP>BaVfR94VY$A%FsF8f;wrA$-tn%aMx9<R+;87J7+^*mT?l9bCxK|~(&+ve&-7@yd
+zhy=WmPLf<e90<7TqaxRRs|^|dsW!TJCeZ2*-^nxCPox?3kBUs2(f$Gd_KxZB%gLz{
+zSRQJl4yWmf%HGJ6gfflcB$mms%rwV~q+5)2&NXeuD$|8BvFZ<WKHjIAk*VeVGmL7v
+z{zNtZT<Oucpg2=GnNpV})Y8eBdOgkKgw@;Vg^b@1v|-}8PRVqwSTFye)Tu!AXfn-W
+zHPEc7!t)>V&;WJx0#s285HKt;w9yLCVR(pbftA0dljJ{B&y7xHBCz?Nt=XlqM(omK
+zROrD<aCjzp4v)2V$yyJBBrOxJQ1lr-%49oH&viRn7Z6eC&fr9$H$y23{TbXZmVJ}3
+zNo;`Mx<(xWgw(T5-5QjAHSdE}tO3>w>AbMsI-Pf{w?SUXdaTa19_#b0#|nKqxrx?7
+zUynZSAudJuHqo#{gL!c=)Zx8eM_j#<*twp#b|rBO+Y90$MSRJ6^c5a`e$>7|`LavH
+gUbjiOPLH%fmu=aO%{lA$;_BF;HPF8Yw=8$}7gdOUkpKVy
+
+diff --git out/production/buchalkaCourse/inheritence/Main.class out/production/buchalkaCourse/inheritence/Main.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..69b7e3724009f459086b131b655298cdd2482a37
+GIT binary patch
+literal 696
+zc${@n+e*Vg5Ix(ZO&V(((|W&Et2T<-S3wa(5eiiw6ruREts$<a8(34p&+^5Bf*;^V
+ziL+4<Z~HKZnX_}|%<k*k(+hwttT`CMtc5un;|?;Iw@|gQU}Moi7BwA~EG%1CVaV+W
+zDUw|V!(TmTF!$rjfT7e9GC1z{I)OUloro%4EAH~>oGYR8&!U-JiCfJHc@-#;1hN}6
+zj<}H9#PtXn#{7%cHNWGHh|92XnkXT|?Q{}XA@!F3pve`NqQ@hK$~Wn~v`V~j8HWrb
+z-^hblcRHtWUv+~+q5b8xmrbo-Kmo(#^tYO3>a_6>De};c)r}w(CyHfQy%o{Ty}s-h
+zu&TA(pG#BeYn7AEb<j;1CjH<0HR<Rl*!YKQHvfJyL-i#Vpnq4N44B@EVv({2AtTJL
+z4Zt2!x<oOT77e%*3m+FS0*^3{GAf_VibM@U{~4LKXPBmK4`8;Qk!^c9*LEve%XBNA
+xHGqAz{)qgSz6UeaEW$#KjMZt1o>l$O!zjiGi<rVVCTLoX?oLvs%}=K)Gw;DOkz@b>
+
